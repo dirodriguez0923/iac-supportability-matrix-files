@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: basic-pod2-replicaset
+  labels:
+    app: basic-pod2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: basic-pod2
+  template:
+    metadata:
+      labels:
+        app: basic-pod2
+    spec:
+      containers:
+      - name: busybox-container
+        image: busybox
+        args:
+        - sleep
+        - "3600"
+
