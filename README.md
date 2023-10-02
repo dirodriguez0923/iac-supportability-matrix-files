@@ -1,5 +1,5 @@
 # iac-supportability-matrix-files
-# Diego Rodriguez - Testing - Adding AWS Source = /
+# Diego Rodriguez - Testing Behaviors
 This repository will contain generic examples of the IaC resources for different IaC files supported by Sysdig.
 
 The objective is to validate what the documentation states in the following link: https://docs.sysdig.com/en/docs/sysdig-secure/integrations-for-sysdig-secure/data-sources/git-integrations/iac-suppportability-matrix/
@@ -22,3 +22,7 @@ The idea is to have clarity on how functional the default GIT zone is when evalu
 
 For example, to me it doesn't make sense to include a CIS Google Cloud Platform Foundation Benchmark as we don't currently support for GCP resources according to the IaC Supportability Matrix information.
  
+**Results**
+
+- Sources **/AWS/terraform-aws-modules/eks/aws** & **/AWS/eks-yaml-files** were **not recognized**. They were valid paths, but for some reason ignored by the **Sysdig Check - IaC Scanner**
+- Source **/** worked! I needed to move the **hello-deployment.yaml** to the root directory of the repository **iac-supportability-matrix-files** to make it work. Interesting that only 2 out of the 5 CSPM Policies were evaluated: **Sysdig Kubernetes** & **CIS Kubernetes V1.18 Benchmark**.
